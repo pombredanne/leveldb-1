@@ -40,11 +40,15 @@ list(APPEND SOURCES util/status.cc)
 
 include_directories(. include)
 
-if (APPLE)
+if (UNIX)
 	list(APPEND SOURCES port/port_posix.cc)
 	list(APPEND SOURCES util/env_posix.cc)
 
-	add_definitions(-DOS_MACOSX -DLEVELDB_PLATFORM_POSIX)
+	add_definitions(-DLEVELDB_PLATFORM_POSIX)
+endif()
+
+if (APPLE)
+	add_definitions(-DOS_MACOSX)
 endif()
 
 add_library(leveldb ${SOURCES})
