@@ -20,6 +20,8 @@
 
 #define snprintf _snprintf
 
+typedef ptrdiff_t ssize_t;
+
 namespace leveldb {
 namespace port {
 

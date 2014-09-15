@@ -51,4 +51,11 @@ if (APPLE)
 	add_definitions(-DOS_MACOSX)
 endif()
 
+if (WIN32)
+	list(APPEND SOURCES port/port_win.cc)
+	list(APPEND SOURCES util/env_win.cc)
+
+    add_definitions(-DLEVELDB_PLATFORM_WINDOWS)
+endif()
+
 add_library(leveldb ${SOURCES})
